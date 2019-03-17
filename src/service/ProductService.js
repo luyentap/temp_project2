@@ -18,6 +18,10 @@ class ProductService {
     return Request.get(`${apiURL}/products_new`);
   }
 
+  static getLimitProducts(page,limit) {
+    return Request.get(`${apiURL}/products_new/page=${page}&&limit=${limit}`);
+  }
+
   static getHotProducts() {
     return Request.get(`${apiURL}/products_hot`);
   }
