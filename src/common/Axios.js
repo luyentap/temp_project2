@@ -1,6 +1,6 @@
 import * as axios from "axios";
 
-export const apiURL = "http://5c19c81e1bf6300013c7dea4.mockapi.io/";
+export const apiURL = "http://5c8ef4c13e557700145e85cb.mockapi.io/";
 class Request {
   static sendRequest(config) {
     config.headers = {

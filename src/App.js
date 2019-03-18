@@ -17,6 +17,7 @@ import Register from './components/register/Register';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './components/home/Home';
 import About from './components/about/About';
+import PageDetal from "./components/detail/PageDetal";
 
 const sagaMiddleware = createSagaMiddleware()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -42,6 +43,7 @@ export default class App extends Component {
               <Route path='/contact' component={Contact}/>
               <Route path='/blog' component={Blog}/>
               <Route path='/register' component={Register}/>
+              <Route path='/detail/:id' component={PageDetal}/>
             </Switch>
             <Footer/>
           </div>
