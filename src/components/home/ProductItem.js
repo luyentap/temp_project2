@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export const ProductItem = ({id,brand,name,old_price,new_price,img}) =>{
+export const ProductItem = ({id,brand,name,old_price,new_price,img,clickBuy}) =>{
   return(
     <div className="product"><img className="product__img" src={img}/>
       <div className="product__detail">
@@ -12,7 +12,7 @@ export const ProductItem = ({id,brand,name,old_price,new_price,img}) =>{
           <div className="product__detail__price__old">{new_price}<span>đ</span></div>
         </div>
         <div className="product__detail__button">
-          <button className="product__detail__button__buy"  value="0">MUA HÀNG
+          <button className="product__detail__button__buy"  value={id} onClick={clickBuy} >MUA HÀNG
           </button>
           <button><i className="fa fa-heart"></i></button>
           <button><i className="fa fa-refresh"></i></button>

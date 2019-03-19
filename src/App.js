@@ -18,6 +18,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import PageDetal from "./components/detail/PageDetal";
+import {addToCart} from "./actions/ActionCreaters";
+import PageCart from "./components/cart/PageCart";
+import {saveState} from "./common/LocalSave";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const sagaMiddleware = createSagaMiddleware()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -44,6 +48,7 @@ export default class App extends Component {
               <Route path='/blog' component={Blog}/>
               <Route path='/register' component={Register}/>
               <Route path='/detail/:id' component={PageDetal}/>
+              <Route path='/cart' component={PageCart}/>
             </Switch>
             <Footer/>
           </div>
@@ -52,3 +57,8 @@ export default class App extends Component {
     );
   }
 }
+
+//theo dõi sự thay đổi của store, cập nhật vào localstorage
+store.subscribe(() => saveState("shoppingCart", store.getState()["products"]["addedItems"]));
+store.subscribe(() => saveState("total", store.getState()["products"]["total"]));
+
